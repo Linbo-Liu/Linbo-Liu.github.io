@@ -1,0 +1,6 @@
+.DS_Store
+
+# Never publish the CV — it contains a phone number.
+*.pdf
+*CV*
+*cv*.pdf
