@@ -248,9 +248,10 @@
 
   .news-item {
     display: grid;
-    grid-template-columns: 5.5rem 1fr;
-    gap: 0 1.5rem;
-    padding: 1.4rem 0;
+    grid-template-columns: 5rem 1fr;
+    gap: 0 1rem;
+    align-items: baseline;
+    padding: .6rem 0;
     border-bottom: 1px solid var(--rule);
   }
 
@@ -260,11 +261,11 @@
   .news-item .article-metadata {
     grid-column: 1;
     display: flex;
-    flex-direction: column;
-    gap: .1rem;
+    align-items: baseline;
+    justify-content: flex-start;
+    gap: .45rem;
     margin: 0;
-    padding-top: .2rem;
-    text-align: right;
+    text-align: left;
   }
 
   .news-item .article-date {
@@ -273,43 +274,25 @@
     font-weight: 700;
     color: var(--heading);
     font-variant-numeric: tabular-nums;
+    white-space: nowrap;
   }
 
-  .news-item .article-metadata > span:last-child {
-    font-size: .72rem;
-    letter-spacing: .06em;
-    text-transform: uppercase;
-    color: var(--faint);
-  }
-
-  /* The middot separator only makes sense on one line — hide it here. */
-  .news-item .middot-divider { display: none; }
-
-  .news-item .article-title { grid-column: 2; font-size: 1.08rem; }
-
-  /* Small lead-in above a news headline, e.g. "New blog post is out". */
-  .news-item .article-title .lead-in {
-    display: block;
+  /* Full-sentence headlines: the sentence reads as body text, the linked
+     phrase inside it carries the link colour so it stays discoverable. */
+  .news-item .article-title {
+    grid-column: 2;
     font-family: Roboto, sans-serif;
-    font-size: .8rem;
-    font-weight: 700;
-    color: var(--link);
-    margin-bottom: .15rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+    color: var(--body);
   }
-  .news-item .article-style { grid-column: 2; }
-  .news-item .article-style p { color: var(--muted); }
+  .news-item .article-title a { color: var(--link); }
 
   @media (max-width: 600px) {
-    .news-item { grid-template-columns: 1fr; gap: .35rem; }
-    .news-item .article-metadata {
-      flex-direction: row;
-      align-items: baseline;
-      gap: .5rem;
-      text-align: left;
-      padding-top: 0;
-    }
-    .news-item .article-title,
-    .news-item .article-style { grid-column: 1; }
+    .news-item { grid-template-columns: 1fr; gap: .2rem; }
+    .news-item .article-title { grid-column: 1; }
   }
 
   /* ---------- Simple cards (projects, publications) ---------- */
@@ -569,87 +552,58 @@
       <div>
         <div class="news-item">
           <div class="article-metadata">
-            <span class="article-date"><time datetime="2026">2026</time></span>
-            <span class="middot-divider"></span>
-            <span>Blog</span>
+            <span class="article-date"><time datetime="2026-08">Aug 2026</time></span>
           </div>
           <h3 class="article-title">
-            <span class="lead-in">New blog post is out</span>
-            <a href="https://rllm-project.com/post.html?post=realtime_rl.md">Continual Learning via Real-Time RL for Agents</a>
+            Two of our papers, <a href="https://arxiv.org/abs/2604.07487">CLEAR</a> and
+            <a href="https://arxiv.org/abs/2606.07867">The Cold-Start Safety Gap in LLM Agents</a>,
+            were accepted at the EMNLP 2026 main conference.
           </h3>
-          <div class="article-style">
-            <p>Can an agent keep learning after deployment, directly from real production-style interactions where each interaction usually gives only one trajectory?</p>
-          </div>
         </div>
 
         <div class="news-item">
           <div class="article-metadata">
-            <span class="article-date"><time datetime="2026">2026</time></span>
-            <span class="middot-divider"></span>
-            <span>rLLM blog</span>
+            <span class="article-date"><time datetime="2026-07">Jul 2026</time></span>
           </div>
           <h3 class="article-title">
-            <span class="lead-in">New blog post is out</span>
-            <a href="https://rllm-project.com/post.html?post=agentcore_migrationbench.md">Training a Frontier Java Code Migration Agent with AWS AgentCore Runtime</a>
+            We published a blog post on <a href="https://rllm-project.com/post.html?post=realtime_rl.md">continual learning via real-time RL for agents</a>.
           </h3>
-          <div class="article-style">
-            <p>
-              We train Qwen3-Coder-30B-A3B using AgentCore Runtime integration to outperform Claude 4.5 Haiku on long-horizon Java repo migrations.
-            </p>
-          </div>
         </div>
 
         <div class="news-item">
           <div class="article-metadata">
-            <span class="article-date"><time datetime="2026">2026</time></span>
-            <span class="middot-divider"></span>
-            <span>Strands blog</span>
+            <span class="article-date"><time datetime="2026-07">Jul 2026</time></span>
           </div>
           <h3 class="article-title">
-            <span class="lead-in">New blog post is out</span>
-            <a href="https://strandsagents.com/blog/introducing-harness-optimizer/">Introducing Harness Optimizer: Automatically optimize your agent harness</a>
+            We released <a href="https://strandsagents.com/blog/introducing-harness-optimizer/">Harness Optimizer</a>, which automatically optimizes your agent harness.
           </h3>
-          <div class="article-style">
-            <p>
-              Tuning the agent harness itself — system prompts, tool descriptions, skills, and
-              advisor models — from collected rollout trajectories.
-            </p>
-          </div>
         </div>
 
         <div class="news-item">
           <div class="article-metadata">
-            <span class="article-date"><time datetime="2026">2026</time></span>
-            <span class="middot-divider"></span>
-            <span>Website</span>
+            <span class="article-date"><time datetime="2026-06">Jun 2026</time></span>
           </div>
           <h3 class="article-title">
-            <span class="lead-in">Website out</span>
-            <a href="https://amazon-science.github.io/MigrationBench/">MigrationBench Website</a>
+            We published a blog post on <a href="https://rllm-project.com/post.html?post=agentcore_migrationbench.md">training a frontier Java code migration agent with AWS AgentCore Runtime</a>.
           </h3>
-          <div class="article-style">
-            <p>
-              MigrationBench is a large-scale benchmark for repository-level code migration from Java 8 to long-term support versions such as Java 17/21. It also provides an automated and robust framework for evaluating code migration success at the repository level.
-            </p>
-          </div>
         </div>
 
         <div class="news-item">
           <div class="article-metadata">
-            <span class="article-date"><time datetime="2026">2026</time></span>
-            <span class="middot-divider"></span>
-            <span>Accepted</span>
+            <span class="article-date"><time datetime="2026-05">May 2026</time></span>
           </div>
           <h3 class="article-title">
-            <span class="lead-in">Paper accepted at KDD 2026</span>
-            <a href="https://amazon-science.github.io/MigrationBench/">MigrationBench: Repository-Level Code Migration Benchmark from Java 8</a>
+            We launched the <a href="https://amazon-science.github.io/MigrationBench/">MigrationBench website</a>.
           </h3>
-          <div class="article-style">
-            <p>
-              To appear in the Proceedings of the 32nd ACM SIGKDD Conference on Knowledge
-              Discovery and Data Mining.
-            </p>
+        </div>
+
+        <div class="news-item">
+          <div class="article-metadata">
+            <span class="article-date"><time datetime="2026-05">May 2026</time></span>
           </div>
+          <h3 class="article-title">
+            Our paper <a href="https://amazon-science.github.io/MigrationBench/">MigrationBench</a> was accepted at KDD 2026.
+          </h3>
         </div>
 
       </div>
