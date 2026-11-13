@@ -268,8 +268,9 @@ a:focus, button:focus {
 /* Skip to main content link (hidden by default) */
 .skip-link {
   position: absolute;
-  top: -40px;
+  top: 6px;
   left: 6px;
+  transform: translateY(calc(-100% - 12px));
   background: var(--primary-color);
   color: white;
   padding: 8px;
@@ -279,7 +280,7 @@ a:focus, button:focus {
 }
 
 .skip-link:focus {
-  top: 6px;
+  transform: none;
 }
 
 /* Scroll progress indicator */
