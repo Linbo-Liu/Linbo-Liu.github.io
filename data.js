@@ -241,7 +241,13 @@ const blogPosts = [
 
 const researchExperience = [
   {
-    period: "2022 - Present",
+    period: "2026 - Present",
+    institution: "Netflix",
+    role: "Senior AI Researcher",
+    description: "Post-training for LLM agents, including agentic RL and continual learning."
+  },
+  {
+    period: "2022 - 2026",
     institution: "AWS AI",
     role: "Research Scientist",
     description: "Post-training for LLM agents, including agentic RL, continual learning, robust ML, and production coding agents."
